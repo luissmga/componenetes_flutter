@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:practica_basic_app/home_screen.dart';
+import 'package:practica_basic_app/screens/home_screen.dart';
+import 'package:practica_basic_app/theme/app_theme.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreeen(),
-    );
+      home: const HomeScreeen(),
+      theme: AppTheme.lightTheme,
+      );
   }
 }
