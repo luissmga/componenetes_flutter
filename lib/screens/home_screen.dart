@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica_basic_app/theme/app_theme.dart';
 
 class HomeScreeen extends StatelessWidget {
   const HomeScreeen({super.key});
@@ -10,26 +11,38 @@ class HomeScreeen extends StatelessWidget {
         title: const Text('companentes de flutter'),
       ),
       body: ListView(
-        children: const <Widget>[
+        children:  <Widget>[
           ListTile(
-            title: Text('Kenia OS'),
-            subtitle: Text('Cantante Mexicana'),
-            leading: Icon(Icons.casino),
-            trailing: Icon(Icons.arrow_circle_right_rounded),
+            title: Text('Entradas', 
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Introduciendo valores',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+            ),
+            leading:  const Icon(Icons.input),
+            trailing:  const Icon(Icons.arrow_circle_right_rounded),
           ),
-          Divider(),
+          const Divider(),
            ListTile(
-            title: Text('Karol G'),
-            subtitle: Text('Cantante Colombiana'),
-            leading: Icon(Icons.price_check_rounded),
-            trailing: Icon(Icons.arrow_circle_right_rounded),
+            title: Text('Listview.builder',
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Lista con scroll infinito',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+            ),
+            leading: const Icon(Icons.list),
+            trailing: const Icon(Icons.arrow_circle_right_rounded),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            title: Text('Danna Paola'),
-            subtitle: Text('Cantante Mexicana'),
-            leading: Icon(Icons.beach_access),
-            trailing: Icon(Icons.arrow_circle_right_rounded),
+            title: Text('Notificaciones',
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Mostrar una notificación',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+            ),
+            leading: const Icon(Icons.notification_add),
+            trailing: const Icon(Icons.arrow_circle_right_rounded),
           ),
         ],
       ),
