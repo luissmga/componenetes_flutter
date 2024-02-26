@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:practica_basic_app/theme/app_theme.dart';
+import 'package:practica_basic_app/screens/data_screen.dart';
+import 'package:practica_basic_app/screens/inputs_screen.dart';
+import 'package:practica_basic_app/screens/infinite_scroll_screen.dart';
+import 'package:practica_basic_app/screens/notifications_screen.dart';
 
 class HomeScreeen extends StatelessWidget {
   const HomeScreeen({super.key});
@@ -19,8 +23,20 @@ class HomeScreeen extends StatelessWidget {
             subtitle: Text('Introduciendo valores',
             style: AppTheme.lightTheme.textTheme.bodySmall,
             ),
-            leading:  const Icon(Icons.input),
-            trailing:  const Icon(Icons.arrow_circle_right_rounded),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.input),
+              ),
+            trailing:IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+              ),
+              onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context){
+                return const InputScreen();
+              });
+              Navigator.push(context, ruta1);
+            },
           ),
           const Divider(),
            ListTile(
@@ -30,8 +46,20 @@ class HomeScreeen extends StatelessWidget {
             subtitle: Text('Lista con scroll infinito',
             style: AppTheme.lightTheme.textTheme.bodySmall,
             ),
-            leading: const Icon(Icons.list),
-            trailing: const Icon(Icons.arrow_circle_right_rounded),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.input),
+              ),
+            trailing:IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+              ),
+              onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context){
+                return const InfiniteScrollScreen();
+              });
+              Navigator.push(context, ruta1);
+            },
           ),
           const Divider(),
           ListTile(
@@ -41,8 +69,20 @@ class HomeScreeen extends StatelessWidget {
             subtitle: Text('Mostrar una notificación',
             style: AppTheme.lightTheme.textTheme.bodySmall,
             ),
-            leading: const Icon(Icons.notification_add),
-            trailing: const Icon(Icons.arrow_circle_right_rounded),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.input),
+              ),
+            trailing:IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+              ),
+              onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context){
+                return const NotifacationsScreen();
+              });
+              Navigator.push(context, ruta1);
+            },
           ),
         ],
       ),
