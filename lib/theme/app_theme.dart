@@ -9,6 +9,7 @@ class AppTheme {
   static const secondaryColor = Color.fromARGB(255, 238, 255, 2);
   //Constante de color de fondo
   static const backColor = Color.fromARGB(222, 0, 0, 0);
+  static const backColor2 = Color.fromARGB(222, 251, 4, 4);
   //Constante de tema en lugar de lightTheme usar dartTheme
   static final ThemeData lightTheme = ThemeData.light().copyWith(
       scaffoldBackgroundColor: backColor,
@@ -49,6 +50,11 @@ class AppTheme {
           decorationColor: primaryColor,
           decorationStyle: TextDecorationStyle.dashed,
           decorationThickness: 1.0,
+        ),
+        headlineMedium: GoogleFonts.montserrat(
+          color: secondaryColor,
+          fontSize: 21.0,
+          fontWeight: FontWeight.bold,
         ),
 
         //Estilo para texto muy pequeño
