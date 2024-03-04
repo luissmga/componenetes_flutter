@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:practica_basic_app/theme/app_theme.dart';
@@ -19,32 +18,34 @@ class _InputScreenState extends State<InputScreen> {
       appBar: AppBar(
         title: const Text('Entradas'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Entradas',
-            style: AppTheme.lightTheme.textTheme.bodySmall,
+      body: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            entradaNombre(),
+            entradaSwitch(),
+            entradaSlider(),
+            const ElevatedButton(
+                    onPressed: null,
+                    child: Text(
+                      'Guardar',
+                    ))
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppTheme.secondaryColor,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'inicio',
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.data_exploration),
+            label: 'Datos'
           ),
-          entradaNombre(),
-          entradaSwitch(),
-          entradaSlider(),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    'Regresar',
-                  )),
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    'Ventana de datos',
-                  ))
-            ],
-          )
-        ],
+        ]
       ),
     );
   }
@@ -94,7 +95,7 @@ class _InputScreenState extends State<InputScreen> {
           thumbColor: AppTheme.secondaryColor,
             inactiveColor: AppTheme.backColor2,
             value: sliderValue,
-            divisions: 9,
+            divisions: 10,
             label: '${sliderValue.round()}',
             onChanged: (value) {
               setState(() {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:practica_basic_app/theme/app_theme.dart';
-import 'package:practica_basic_app/screens/data_screen.dart';
+//import 'package:practica_basic_app/screens/data_screen.dart';
 import 'package:practica_basic_app/screens/inputs_screen.dart';
 import 'package:practica_basic_app/screens/infinite_scroll_screen.dart';
 import 'package:practica_basic_app/screens/notifications_screen.dart';
 
 class HomeScreeen extends StatelessWidget {
-  const HomeScreeen({super.key});
+  const HomeScreeen({super.key}); 
 
   @override
   Widget build(BuildContext context) {

@@ -43,7 +43,7 @@ class AppTheme {
         //Titulos muy grandes
         headlineLarge: GoogleFonts.alatsi(
           color: primaryColor,
-          fontSize: 26.5,
+          fontSize: 27.5,
           fontWeight: FontWeight.w500,
           fontStyle: FontStyle.italic,
           decoration: TextDecoration.underline,
