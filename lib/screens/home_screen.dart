@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica_basic_app/screens/images_screen.dart';
 import 'package:practica_basic_app/theme/app_theme.dart';
 //import 'package:practica_basic_app/screens/data_screen.dart';
 import 'package:practica_basic_app/screens/inputs_screen.dart';
@@ -80,6 +81,29 @@ class HomeScreeen extends StatelessWidget {
               onTap: () {
               final ruta1 = MaterialPageRoute(builder: (context){
                 return const NotifacationsScreen();
+              });
+              Navigator.push(context, ruta1);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: Text('Imagenes',
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Mostrar unas fotos bonitas',
+            style: AppTheme.lightTheme.textTheme.bodySmall,
+            ),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.image_outlined),
+              ),
+            trailing:IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.arrow_circle_right_rounded),
+              ),
+              onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context){
+                return const ImagesScreen();
               });
               Navigator.push(context, ruta1);
             },
