@@ -1,5 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:practica_basic_app/screens/home_screen.dart';
+import 'package:practica_basic_app/screens/images_screen.dart';
+import 'package:practica_basic_app/screens/infinite_scroll_screen.dart';
+import 'package:practica_basic_app/screens/notifications_screen.dart';
 import 'package:practica_basic_app/theme/app_theme.dart';
 
 class InputScreen extends StatefulWidget {
@@ -16,6 +19,31 @@ class _InputScreenState extends State<InputScreen> {
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
+  int indexNavigation = 0;
+
+  openScreen(int index, BuildContext context) {
+    MaterialPageRoute ruta =
+        MaterialPageRoute(builder: (context) => const HomeScreeen());
+    switch (index) {
+      case 0:
+        ruta = MaterialPageRoute(builder: (context) => const HomeScreeen());
+        break;
+      case 1:
+        ruta = MaterialPageRoute(
+            builder: (context) => const InfiniteScrollScreen());
+        break;
+      case 2:
+        ruta = MaterialPageRoute(
+            builder: (context) => const NotifacationsScreen());
+      case 3:
+        ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+        break;
+    }
+    setState(() {
+      indexNavigation = index;
+      Navigator.push(context, ruta);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,26 +66,33 @@ class _InputScreenState extends State<InputScreen> {
             ),
             entradasCheck(),
             const ElevatedButton(
-                    onPressed: null,
-                    child: Text(
-                      'Guardar',
-                    ))
+                onPressed: null,
+                child: Text(
+                  'Guardar',
+                ))
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppTheme.secondaryColor,
-        items: const [
-          BottomNavigationBarItem(
+          currentIndex: indexNavigation,
+          backgroundColor: AppTheme.secondaryColor,
+          unselectedItemColor: AppTheme.backColor,
+          selectedItemColor: AppTheme.backColor2,
+          unselectedLabelStyle: const TextStyle(color: AppTheme.backColor),
+          onTap: (index) => openScreen(index, context),
+          items: const [
+            BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'inicio',
+              label: 'Inicio',
             ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.data_exploration),
-            label: 'Datos'
-          ),
-        ]
-      ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.data_exploration), label: 'Lista'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.notification_add), label: 'Notificación'),
+            BottomNavigationBarItem(icon: Icon(Icons.image), label: 'Imagenes'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.data_exploration), label: 'Salir'),
+          ]),
     );
   }
 
@@ -100,10 +135,10 @@ class _InputScreenState extends State<InputScreen> {
           style: AppTheme.lightTheme.textTheme.headlineMedium,
         ),
         Slider(
-          min: 0.0,
-          max: 10.0,
-          activeColor: AppTheme.primaryColor,
-          thumbColor: AppTheme.secondaryColor,
+            min: 0.0,
+            max: 10.0,
+            activeColor: AppTheme.primaryColor,
+            thumbColor: AppTheme.secondaryColor,
             inactiveColor: AppTheme.backColor2,
             value: sliderValue,
             divisions: 10,
@@ -117,53 +152,58 @@ class _InputScreenState extends State<InputScreen> {
       ],
     );
   }
-  Column entradaRadio(){
+
+  Column entradaRadio() {
     return Column(
       children: [
-        Text('¿que prefieres para desarrollo movil?',
-        style: AppTheme.lightTheme.textTheme.headlineLarge,
+        Text(
+          '¿que prefieres para desarrollo movil?',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
         ),
         ListTile(
-          title: Text('kotlin',
-          style: AppTheme.lightTheme.textTheme.headlineSmall,
+          title: Text(
+            'kotlin',
+            style: AppTheme.lightTheme.textTheme.headlineSmall,
           ),
           leading: Transform.scale(
             scale: 1.5,
             child: Radio(
-              value:1,
+              value: 1,
               groupValue: radioSelected,
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
                   radioSelected = value!;
-                print('seleccionado el boton radio: $radioSelected');
+                  //print('seleccionado el boton radio: $radioSelected');
                 });
               },
             ),
           ),
         ),
         ListTile(
-          title: Text('Flutter',
-          style: AppTheme.lightTheme.textTheme.headlineSmall,
+          title: Text(
+            'Flutter',
+            style: AppTheme.lightTheme.textTheme.headlineSmall,
           ),
           leading: Transform.scale(
             scale: 1.5,
             child: Radio(
-              value:2,
+              value: 2,
               groupValue: radioSelected,
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
                   radioSelected = value!;
-                print('seleccionado el boton radio: $radioSelected');
+                  //print('seleccionado el boton radio: $radioSelected');
                 });
               },
             ),
           ),
         ),
-    ],
+      ],
     );
   }
-  Row entradasCheck(){
-    return  Row(
+
+  Row entradasCheck() {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
@@ -173,8 +213,8 @@ class _InputScreenState extends State<InputScreen> {
         Transform.scale(
           scale: 1.0,
           child: Checkbox(
-            value: isChecked1, 
-            onChanged: (value){
+            value: isChecked1,
+            onChanged: (value) {
               setState(() {
                 isChecked1 = value!;
               });
@@ -188,8 +228,8 @@ class _InputScreenState extends State<InputScreen> {
         Transform.scale(
           scale: 1.0,
           child: Checkbox(
-            value: isChecked2, 
-            onChanged: (value){
+            value: isChecked2,
+            onChanged: (value) {
               setState(() {
                 isChecked2 = value!;
               });
@@ -197,14 +237,14 @@ class _InputScreenState extends State<InputScreen> {
           ),
         ),
         Text(
-          'phone',
+          'Phone',
           style: AppTheme.lightTheme.textTheme.bodySmall,
         ),
         Transform.scale(
           scale: 1.0,
           child: Checkbox(
-            value: isChecked3, 
-            onChanged: (value){
+            value: isChecked3,
+            onChanged: (value) {
               setState(() {
                 isChecked3 = value!;
               });

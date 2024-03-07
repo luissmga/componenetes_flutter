@@ -57,7 +57,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
     return SizedBox(
       height: 200.0,
       width: 100.0,
-      child: Image.network('https://png.pngtree.com/png-clipart/20190330/ourlarge/pngtree-cartoon-cow-black-and-white-hand-painted-elements-png-image_893878.jpg'),
+      child: Image.network('https://media.glamour.mx/photos/654da7d483a16dc594201d3a/16:9/w_1920,c_limit/kenia-os-look-women-of-the-year-2023.jpg'),
     );
 
   }
@@ -69,7 +69,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
         ),
         Center(child: FadeInImage.memoryNetwork(
            placeholder: kTransparentImage,
-           image: 'https://png.pngtree.com/png-clipart/20190330/ourlarge/pngtree-cartoon-cow-black-and-white-hand-painted-elements-png-image_893878.jpg'),),
+           image: 'https://media.glamour.mx/photos/654da7d483a16dc594201d3a/16:9/w_1920,c_limit/kenia-os-look-women-of-the-year-2023.jpg'),),
       ],
     );
   }
